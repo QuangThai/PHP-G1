@@ -95,6 +95,11 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Quá trình học tập</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="TestAjax.php">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Ajax</span></a>
+      </li>
     </ul>
 
     <div id="content-wrapper">

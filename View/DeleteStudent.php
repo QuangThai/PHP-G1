@@ -1,16 +1,9 @@
-
-<!-- 1#1990#1991#Phan Chu Trinh#Huế#101
-2#1991#1992#Phan Bội Châu#Dà Nẵng#101
-3#1995#1996#Phan Chu Trinh#Huế#102
-4#1997#1998#Phan Bội Châu#Dà Nẵng#102
-5#2019#2020#Khoa Học#Nguyễn Huệ#101 -->
-
 <?php
     include_once("header.php");
     include_once("nav.php");
     include_once("../model/entity/learninghistory.php");
     $rsFromFile = learninghistory::getListFromFile("1"); 
-    ?>
+?>
 <?php 
            $id = $_REQUEST["m"];
           //  var_dump($_SERVER);

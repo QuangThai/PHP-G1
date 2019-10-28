@@ -12,8 +12,7 @@
             $this->placeOfBirth = $placeOfBirth;
         }
         function display(){
-                echo " Họ tên " .   $this->firstName ." ".$this->
-                echo " Họ tên " +  $firstName;
+
         }
     }
 ?>

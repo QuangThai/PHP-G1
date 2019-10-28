@@ -25,8 +25,7 @@
             return $rs;
            
         }
-        static function getListFromFile($idStudent)
-        {
+        static function getListFromFile($idStudent){
             $line = file("../model/resource/learninghistory.txt",FILE_IGNORE_NEW_LINES);
             $rs = array();
             foreach($line as $key=>$value){
@@ -44,6 +43,31 @@
             
             return $rs;
         }
-       }
-     
+        static function getListFromDB($idStudent) {
+            // b1 : mở kết nối DB
+            $con = new mysqli("localhost", "root", "","qlsv");
+            $con->set_charset("utf8");
+            if($con->connect_error)
+                die("Kết nối thất bại.Chi tiết lỗi:" . $con->connect_error);
+            //b2 : Thao tác tới DB : CRUD
+            $query = "SELECT * FROM quatrinhhoctap WHERE masinhvien='$idStudent'" ;
+            $result = $con->query($query);
+            $rs = array();
+            if($result->num_rows >0) {
+                while($row = $result->fetch_assoc()) {
+                    array_push($rs,new LearningHistory(
+                        $row["ma"],
+                        $row["tunam"],
+                        $row["dennam"],
+                        $row["tentruong"],
+                        $row["diachitruong"],
+                        $row["masinhvien"]
+                    ));
+                }
+            }
+            // b3 : đóng kết nối DB
+            $con->close();
+            return $rs;
+        }
+    } 
 ?>
